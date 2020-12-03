@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login | Creeps</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="container" [hidden]="codeSent">
+    Enter the phone number you want to register.
+    <ion-item>
+      <ion-label id="country_code">+63</ion-label>
+      <ion-input
+        id="phone_number"
+        maxLength="10"
+        placeholder="9XXXXXXXXX"
+        value="9120357451"
+      ></ion-input>
+    </ion-item>
+    <div id="recaptcha-container"></div>
+    <ion-button (click)="sendCode()">Send Code</ion-button>
+  </div>
+  <div [hidden]="!codeSent" class="container">
+    <ion-item>
+      <ion-input
+        id="verification_code"
+        maxLength="6"
+        placeholder="X X X X X X"
+      ></ion-input>
+    </ion-item>
+    <ion-button (click)="verifyCode()">Verify Code</ion-button>
+  </div>
+</ion-content>

@@ -9,11 +9,18 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 
+// import { HttpClientModule } from "@angular/common/http";
+
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from "src/environments/environment";
 import { Camera } from "@ionic-native/camera/ngx";
+import { File } from "@ionic-native/File/ngx";
+import { WebView } from "@ionic-native/ionic-webview/ngx";
+import { FilePath } from "@ionic-native/file-path/ngx";
+
+import { IonicStorageModule } from "@ionic/storage";
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,12 +32,17 @@ import { Camera } from "@ionic-native/camera/ngx";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    IonicStorageModule.forRoot(),
+    IonicModule.forRoot(),
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Camera,
+    File,
+    WebView,
+    FilePath,
   ],
   bootstrap: [AppComponent],
 })

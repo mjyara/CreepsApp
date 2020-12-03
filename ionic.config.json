@@ -1,5 +1,7 @@
 {
   "name": "Creeps App",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

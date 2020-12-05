@@ -8,14 +8,23 @@ const routes: Routes = [
       import("./home/home.module").then((m) => m.HomePageModule),
   },
   {
-    path: "",
-    redirectTo: "intro",
-    pathMatch: "full",
-  },
-  {
     path: "login",
     loadChildren: () =>
       import("./auth/login/login.module").then((m) => m.LoginPageModule),
+  },
+  {
+    path: "",
+    redirectTo: "home",
+    pathMatch: "full",
+  },
+  {
+    path: "home",
+    loadChildren: () =>
+      import("./home/home.module").then((m) => m.HomePageModule),
+  },
+  {
+    path: "try",
+    loadChildren: () => import("./try/try.module").then((m) => m.TryPageModule),
   },
 ];
 

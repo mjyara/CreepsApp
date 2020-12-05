@@ -1,20 +1,97 @@
-<ion-header [translucent]="true">
+<!-- <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script> -->
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- slider -->
+<ion-menu side="end" menuId="first" contentId="main">
+  <!-- for inserting image -->
+  <ion-list>
+    <ion-avatar class="ion-margin-start" (click)="next()">
+      <img src="assets/icon/person-circle.svg" />
+      <!-- <ion-img [src]="item.src"></ion-img> -->
+    </ion-avatar>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+    <!-- for User&Phone Number -->
+    <ion-item>
+      <ion-list>
+        <ion-label> Hi User !</ion-label>
+        <ion-label><strong>+639123456789</strong></ion-label>
+      </ion-list>
+      <ion-icon name="chevron-down" slot="end" (click)="next()"></ion-icon>
+    </ion-item>
+
+    <ion-list>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/icon/person-circle.svg" />
+        </ion-avatar>
+        <ion-label>Username</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/icon/add-outline.svg" />
+        </ion-avatar>
+        <ion-label>Add Account</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item lines="none">
+        <ion-icon name="search-circle"></ion-icon>
+        <ion-label> Search</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon name="trophy"></ion-icon>
+        <ion-label> Achievements</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon name="help-circle"></ion-icon>
+        <ion-label> Support </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon name="wallet"></ion-icon>
+        <ion-label> Wallet</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon name="flag"></ion-icon>
+        <ion-label> History</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+</ion-menu>
+
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<!-- footer -->
+<ion-footer>
+  <ion-toolbar>
+    <ion-button fill="clear" color="medium" slot="start">
+      <ion-col size="20">
+        <ion-icon name="cart"></ion-icon>
+      </ion-col>
+    </ion-button>
+    <ion-button fill="clear" color="medium" slot="start">
+      <ion-col size="20">
+        <ion-icon name="game-controller"></ion-icon>
+      </ion-col>
+    </ion-button>
+    <ion-button fill="clear" color="medium" slot="start">
+      <ion-col size="20">
+        <ion-icon name="home"></ion-icon>
+      </ion-col>
+    </ion-button>
+    <ion-button fill="clear" color="medium" slot="end">
+      <ion-col size="20">
+        <ion-icon name="reorder-three" (click)="openFirst()"></ion-icon>
+      </ion-col>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

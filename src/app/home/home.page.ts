@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
     this.menu.open("first");
   }
 
-  next() {
-    this.router.navigateByUrl("/try");
-  }
+  // next() {
+  //   this.router.navigateByUrl("/try");
+  // }
 }

@@ -3,19 +3,46 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
 />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script> -->
-<ion-header>
+<ion-header padding>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <div class="flex ion-padding">
+      <div class="xp">
+        <span>XP:</span>
+        <ion-progress-bar value="0.5"></ion-progress-bar>
+      </div>
+      <div class="chat">
+        <img src="assets/icon/chat.png" />
+
+        <!-- <ion-icon name="chatbubble-ellipses"> </ion-icon> -->
+      </div>
+    </div>
   </ion-toolbar>
 </ion-header>
+
+<ion-content padding>
+  <div class="flex ion-padding">
+    <div class="win">
+      <img src="assets/icon/winner.png" />
+    </div>
+    <div class="lose">
+      <img src="assets/icon/trophy.png" />
+    </div>
+    <div class="rank">
+      <img src="assets/icon/ranking.png" />
+    </div>
+    <div class="IGstat">
+      <img src="assets/icon/circle-16.png" />
+      <ion-label> Online</ion-label>
+    </div>
+  </div>
+</ion-content>
 
 <!-- slider -->
 <ion-menu side="end" menuId="first" contentId="main">
   <!-- for inserting image -->
   <ion-list>
-    <ion-avatar class="ion-margin-start" (click)="next()">
+    <ion-avatar class="ion-margin-start">
       <img src="assets/icon/person-circle.svg" />
-      <!-- <ion-img [src]="item.src"></ion-img> -->
     </ion-avatar>
 
     <!-- for User&Phone Number -->
@@ -25,7 +52,6 @@
         <ion-label><strong>+639123456789</strong></ion-label>
       </ion-list>
       <ion-icon name="chevron-down" slot="end"></ion-icon>
-      <!-- (click)="next()" -->
     </ion-item>
 
     <ion-list>
@@ -40,7 +66,7 @@
         <ion-avatar slot="start">
           <img src="assets/icon/add-outline.svg" />
         </ion-avatar>
-        <ion-label>Add Account</ion-label>
+        <ion-label (click)="AddAcc()">Add Account</ion-label>
       </ion-item>
     </ion-list>
 
@@ -71,7 +97,6 @@
 
 <ion-router-outlet id="main"></ion-router-outlet>
 
-<!-- footer -->
 <ion-footer>
   <ion-toolbar>
     <ion-button fill="clear" color="medium" slot="start">

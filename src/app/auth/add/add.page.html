@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login | Creeps</ion-title>
+    <ion-title>Add Account | Creeps </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,14 +10,14 @@
     <ion-item>
       <ion-label id="country_code">+63</ion-label>
       <ion-input
-        id="phone_number"
+        id="ph_number"
         maxLength="10"
         placeholder="9XXXXXXXXX"
         value="9120357451"
       ></ion-input>
     </ion-item>
     <div id="recaptcha-container"></div>
-    <ion-button (click)="sendCode()">Send Code</ion-button>
+    <ion-button (click)="sendcode()">Send Code</ion-button>
   </div>
   <div [hidden]="!codeSent" class="container">
     <ion-item>
@@ -27,6 +27,6 @@
         placeholder="XXXXXX"
       ></ion-input>
     </ion-item>
-    <ion-button (click)="verifyCode()">Verify Code</ion-button>
+    <ion-button (click)="verifycode()">Verify Code</ion-button>
   </div>
 </ion-content>

@@ -8,7 +8,7 @@ import { MenuController } from "@ionic/angular";
   styleUrls: ["./home.page.scss"],
 })
 export class HomePage implements OnInit {
-  constructor(private menu: MenuController, private router: Router) {}
+  constructor(private menu: MenuController, public router: Router) {}
 
   ngOnInit() {}
 
@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
     this.menu.open("first");
   }
 
-  // next() {
-  //   this.router.navigateByUrl("/try");
-  // }
+  AddAcc() {
+    this.router.navigateByUrl("/add");
+  }
 }

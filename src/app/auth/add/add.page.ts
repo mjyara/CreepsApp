@@ -1,17 +1,16 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
-import { AngularFirestore } from "@angular/fire/firestore";
 import { Router } from "@angular/router";
 import firebase from "firebase";
 import { environment } from "src/environments/environment";
 import { Storage } from "@ionic/storage";
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.page.html",
-  styleUrls: ["./login.page.scss"],
+  selector: "app-add",
+  templateUrl: "./add.page.html",
+  styleUrls: ["./add.page.scss"],
 })
-export class LoginPage implements OnInit {
+export class AddPage implements OnInit {
   recaptchaVerifier: firebase.auth.RecaptchaVerifier;
   confirmationResult: firebase.auth.ConfirmationResult;
   codeSent: boolean = false;
@@ -23,13 +22,8 @@ export class LoginPage implements OnInit {
     public router: Router,
     public storage: Storage
   ) {}
+
   ngOnInit() {
-    this.storage.get("users").then((value) => {
-      if (value !== null) {
-        console.log(value);
-        this.router.navigate(["/"]);
-      }
-    });
     firebase.initializeApp(environment.firebaseConfig);
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
       "recaptcha-container",
@@ -52,9 +46,9 @@ export class LoginPage implements OnInit {
     );
   }
 
-  sendCode() {
+  sendcode() {
     this.phoneNumber = `+63${
-      (<HTMLInputElement>document.getElementById("phone_number")).value
+      (<HTMLInputElement>document.getElementById("ph_number")).value
     }`;
     this.firebaseAuth
       .signInWithPhoneNumber(this.phoneNumber, this.recaptchaVerifier)
@@ -68,21 +62,21 @@ export class LoginPage implements OnInit {
       });
   }
 
-  verifyCode() {
+  verifycode() {
     const verificationCode = (<HTMLInputElement>(
       document.getElementById("verification_code")
     )).value;
     this.confirmationResult
       .confirm(verificationCode)
       .then((result) => {
-        this.addUser(result.user);
+        this.adduser(result.user);
       })
       .catch((err) => {
         alert(err.message);
       });
   }
 
-  addUser(user: firebase.User) {
+  adduser(user: firebase.User) {
     let usersLength = this.users.length;
     for (let i = 0; i < usersLength; i++) {
       if (

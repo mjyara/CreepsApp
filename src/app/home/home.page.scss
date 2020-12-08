@@ -5,3 +5,48 @@ ion-icon {
 ion-button {
   --padding-end: 20px;
 }
+
+.flex {
+  display: flex;
+}
+
+.chat {
+  display: flex;
+  justify-content: center;
+  flex: 40%;
+  font-size: 30px;
+}
+
+.xp {
+  flex: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.win {
+  flex: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lose {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rank {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.IGstat {
+  flex: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import firebase from "firebase";
 import { environment } from "src/environments/environment";
 import { Storage } from "@ionic/storage";
@@ -24,7 +24,9 @@ export class AddPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    firebase.initializeApp(environment.firebaseConfig);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(environment.firebaseConfig);
+    }
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
       "recaptcha-container",
       {
@@ -32,11 +34,10 @@ export class AddPage implements OnInit {
       }
     );
     this.firestore = firebase.firestore();
-
     this.firestore.collection("users").onSnapshot(
-      (x) => {
+      (y) => {
         this.users = [];
-        x.docs.forEach((element) => {
+        y.docs.forEach((element) => {
           this.users.push(element.data());
         });
       },
@@ -48,7 +49,7 @@ export class AddPage implements OnInit {
 
   sendcode() {
     this.phoneNumber = `+63${
-      (<HTMLInputElement>document.getElementById("ph_number")).value
+      (<HTMLInputElement>document.getElementById("Phone_number")).value
     }`;
     this.firebaseAuth
       .signInWithPhoneNumber(this.phoneNumber, this.recaptchaVerifier)
@@ -83,7 +84,7 @@ export class AddPage implements OnInit {
         this.users[i].uid === user.uid ||
         this.users[i].phoneNumber === user.phoneNumber
       ) {
-        this.router.navigate(["/home"]);
+        this.router.navigate(["/"]);
         return;
       }
     }
@@ -92,9 +93,9 @@ export class AddPage implements OnInit {
       .collection("users")
       .add(data)
       .then(() => {
-        alert("Registration successful!");
+        alert("Add New Account successful!");
         this.storage.set("user", data).then(() => {
-          this.router.navigate(["/home"]);
+          this.router.navigate(["/"]);
         });
       })
       .catch((err) => console.error(err));

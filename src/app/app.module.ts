@@ -24,9 +24,9 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { environment } from "src/environments/environment";
-import { from } from "rxjs";
 
 import { IonicStorageModule } from "@ionic/storage";
+//import { SizeformatpipePipe } from "./sizeformatpipe.pipe";
 
 @NgModule({
   declarations: [AppComponent],

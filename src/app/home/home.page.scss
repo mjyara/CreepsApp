@@ -2,17 +2,13 @@ ion-icon {
   font-size: 40px;
 }
 
-ion-button {
-  --padding-end: 20px;
-}
-
 .flex {
   display: flex;
 }
 
 .chat {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   flex: 40%;
   font-size: 30px;
 }
@@ -24,29 +20,40 @@ ion-button {
   align-items: center;
 }
 
-.win {
+.TopList {
   flex: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ion-label {
+    text-align: center;
+    font-size: 12px;
+    font-family: Arial;
+    color: gold;
+  }
 }
 
-.lose {
-  flex: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.rank {
-  flex: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.IGstat {
+.FooterBtn {
   flex: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ion-icon {
+    font-size: 40px;
+  }
+}
+
+.DownBtn {
+  flex: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 140px;
+
+  ion-label {
+    text-align: center;
+    font-size: 12px;
+  }
 }

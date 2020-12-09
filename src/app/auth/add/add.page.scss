@@ -10,3 +10,14 @@
   margin: 0 auto;
   margin-top: 5px;
 }
+
+.flex {
+  display: flex;
+}
+
+.back {
+  display: flex;
+  justify-content: center;
+  flex: 30%;
+  font-size: 30px;
+}

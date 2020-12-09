@@ -17,7 +17,8 @@ export class HomePage implements OnInit {
     this.menu.open("first");
   }
 
-  AddAcc() {
-    this.router.navigateByUrl("/add");
+  openSecond() {
+    this.menu.enable(false, "first");
+    this.menu.open("first");
   }
 }

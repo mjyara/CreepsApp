@@ -1,38 +1,85 @@
-<!-- <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script> -->
 <ion-header padding>
   <ion-toolbar>
     <div class="flex ion-padding">
       <div class="xp">
-        <span>XP:</span>
+        <span>XP: </span>
         <ion-progress-bar value="0.5"></ion-progress-bar>
       </div>
       <div class="chat">
         <img src="assets/icon/chat.png" />
-
-        <!-- <ion-icon name="chatbubble-ellipses"> </ion-icon> -->
       </div>
     </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <div class="flex ion-padding">
-    <div class="win">
-      <img src="assets/icon/winner.png" />
+    <div class="TopList">
+      <ion-label>
+        <img src="assets/icon/success.png" />
+        <br />
+        Won:<ion-note slot="center">0</ion-note>
+      </ion-label>
     </div>
-    <div class="lose">
-      <img src="assets/icon/trophy.png" />
+
+    <div class="TopList">
+      <ion-label>
+        <img src="assets/icon/trophy.png" />
+        <br />
+        Lost:<ion-note slot="center">0</ion-note>
+      </ion-label>
     </div>
-    <div class="rank">
-      <img src="assets/icon/ranking.png" />
+
+    <div class="TopList">
+      <ion-label>
+        <img src="assets/icon/shield.png" />
+        <br />
+        Ingame:<ion-note slot="center">0</ion-note>
+      </ion-label>
     </div>
-    <div class="IGstat">
-      <img src="assets/icon/circle-16.png" />
-      <ion-label> Online</ion-label>
+
+    <div class="TopList">
+      <ion-label>
+        <img src="assets/icon/ranking.png" />
+        <br />
+        Rank:<ion-note slot="center">0</ion-note>
+      </ion-label>
+    </div>
+  </div>
+</ion-content>
+
+<ion-content>
+  <div class="flex ion-padding">
+    <div class="DownBtn">
+      <ion-label>
+        <img src="assets/icon/leaderboards.png" />
+        <br />
+        Leaderboards
+      </ion-label>
+    </div>
+
+    <div class="DownBtn">
+      <ion-label>
+        <img src="assets/icon/fighting.png" />
+        <br />
+        Challenges
+      </ion-label>
+    </div>
+
+    <div class="DownBtn">
+      <ion-label>
+        <img src="assets/icon/competition.png" />
+        <br />
+        Competitions
+      </ion-label>
+    </div>
+
+    <div class="DownBtn">
+      <ion-label>
+        <img src="assets/icon/bell.png" />
+        <br />
+        Notifications
+      </ion-label>
     </div>
   </div>
 </ion-content>
@@ -41,7 +88,7 @@
 <ion-menu side="end" menuId="first" contentId="main">
   <!-- for inserting image -->
   <ion-list>
-    <ion-avatar class="ion-margin-start">
+    <ion-avatar class="ion-margin-start" routerLink="/profile">
       <img src="assets/icon/person-circle.svg" />
     </ion-avatar>
 
@@ -51,7 +98,7 @@
         <ion-label> Hi User !</ion-label>
         <ion-label><strong>+639123456789</strong></ion-label>
       </ion-list>
-      <ion-icon name="chevron-down" slot="end"></ion-icon>
+      <!-- <ion-icon name="chevron-down" slot="end"></ion-icon> -->
     </ion-item>
 
     <ion-list>
@@ -66,7 +113,9 @@
         <ion-avatar slot="start">
           <img src="assets/icon/add-outline.svg" />
         </ion-avatar>
-        <ion-label (click)="AddAcc()">Add Account</ion-label>
+        <ion-label routerLink="/add" (click)="openSecond()"
+          >Add Account</ion-label
+        >
       </ion-item>
     </ion-list>
 
@@ -99,25 +148,48 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-button fill="clear" color="medium" slot="start">
-      <ion-col size="20">
-        <ion-icon name="cart"></ion-icon>
-      </ion-col>
-    </ion-button>
-    <ion-button fill="clear" color="medium" slot="start">
-      <ion-col size="20">
-        <ion-icon name="game-controller"></ion-icon>
-      </ion-col>
-    </ion-button>
-    <ion-button fill="clear" color="medium" slot="start">
-      <ion-col size="20">
-        <ion-icon name="home"></ion-icon>
-      </ion-col>
-    </ion-button>
-    <ion-button fill="clear" color="medium" slot="end">
-      <ion-col size="20">
-        <ion-icon name="reorder-three" (click)="openFirst()"></ion-icon>
-      </ion-col>
-    </ion-button>
+    <div class="flex ion-padding">
+      <div class="FooterBtn">
+        <ion-label
+          position="undefined"
+          style="text-align: center; font-size: 15px"
+        >
+          <ion-button fill="clear" color="medium" slot="start">
+            <ion-icon name="cart"></ion-icon>
+          </ion-button>
+          <strong>Shop</strong>
+        </ion-label>
+      </div>
+
+      <div class="FooterBtn">
+        <ion-label
+          position="undefined"
+          style="text-align: center; font-size: 15px"
+        >
+          <ion-button fill="clear" color="medium" slot="start">
+            <ion-icon name="game-controller"></ion-icon>
+          </ion-button>
+          <strong>Matches</strong>
+        </ion-label>
+      </div>
+
+      <div class="FooterBtn">
+        <ion-label
+          position="undefined"
+          style="text-align: center; font-size: 15px"
+        >
+          <ion-button fill="clear" color="medium" slot="start">
+            <ion-icon name="home"></ion-icon>
+          </ion-button>
+          <strong>Home</strong>
+        </ion-label>
+      </div>
+
+      <div class="FooterBtn" (click)="openFirst()">
+        <ion-button fill="clear" color="medium" slot="end">
+          <ion-icon name="reorder-three"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
   </ion-toolbar>
 </ion-footer>

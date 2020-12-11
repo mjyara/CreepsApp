@@ -11,11 +11,10 @@ const FILE_SIZE_UNITS_LONG = [
   "Zettabytes",
   "Yottabytes",
 ];
-
 @Pipe({
-  name: "fileSizePipe",
+  name: "profilepipe",
 })
-export class SizeformatpipePipe implements PipeTransform {
+export class ProfilepipePipe implements PipeTransform {
   static forRoot() {
     throw new Error("Method not implemented.");
   }
@@ -24,8 +23,8 @@ export class SizeformatpipePipe implements PipeTransform {
     const units = longForm ? FILE_SIZE_UNITS_LONG : FILE_SIZE_UNITS;
     let power = Math.round(Math.log(sizeInBytes) / Math.log(1024));
     power = Math.min(power, units.length - 1);
-    const size = sizeInBytes / Math.pow(1024, power); // size in new units
-    const formattedSize = Math.round(size * 100) / 100; // keep up to 2 decimals
+    const size = sizeInBytes / Math.pow(1024, power);
+    const formattedSize = Math.round(size * 100) / 100;
     const unit = units[power];
     return `${formattedSize} ${unit}`;
   }

@@ -26,10 +26,10 @@ import { AngularFireStorageModule } from "@angular/fire/storage";
 import { environment } from "src/environments/environment";
 
 import { IonicStorageModule } from "@ionic/storage";
-//import { SizeformatpipePipe } from "./sizeformatpipe.pipe";
+import { GeneralpipePipe } from "./generalpipe.pipe";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, GeneralpipePipe],
   entryComponents: [],
   imports: [
     BrowserModule,

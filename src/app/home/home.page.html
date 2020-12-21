@@ -87,13 +87,9 @@
 <!-- slider -->
 <ion-menu side="end" menuId="first" contentId="main">
   <!-- for inserting image -->
-  <ion-list>
-    <ion-avatar
-      class="ion-margin-start"
-      routerLink="/profile"
-      *ngFor="let item of images | async"
-    >
-      <!-- class="autoSize" -->
+  <ion-list *ngFor="let item of images | async">
+    <ion-avatar class="ion-margin-start" routerLink="/profile">
+      <!-- class="autoSize"-->
       <img [src]="item.filepath" />
     </ion-avatar>
 
@@ -101,7 +97,7 @@
     <ion-item>
       <ion-list>
         <ion-label> Hi User !</ion-label>
-        <ion-label><strong>+639123456789</strong></ion-label>
+        <ion-label><strong>+639120357451</strong></ion-label>
       </ion-list>
       <!-- <ion-icon name="chevron-down" slot="end"></ion-icon> -->
     </ion-item>

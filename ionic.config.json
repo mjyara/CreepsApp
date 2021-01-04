@@ -1,7 +1,8 @@
 {
   "name": "Creeps App",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }

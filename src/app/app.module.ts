@@ -18,6 +18,7 @@ import { File } from "@ionic-native/File/ngx";
 import { Camera } from "@ionic-native/camera/ngx";
 import { FilePath } from "@ionic-native/file-path/ngx";
 import { InAppBrowser } from "@ionic-native/in-app-browser/ngx";
+// import { FileChooser } from "@ionic-native/file-chooser/ngx";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -48,7 +49,6 @@ import { GeneralpipePipe } from "./generalpipe.pipe";
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ImagePicker,
     MediaCapture,
-    File,
     Media,
     StreamingMedia,
     PhotoViewer,
@@ -56,6 +56,7 @@ import { GeneralpipePipe } from "./generalpipe.pipe";
     File,
     FilePath,
     InAppBrowser,
+    // FileChooser,
   ],
   bootstrap: [AppComponent],
 })

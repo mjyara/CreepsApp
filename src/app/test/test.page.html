@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Test</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="gender == 'F'; else elseBlock">
+    <ion-icon name="add-circle-outline"></ion-icon>
+  </div>
+  <ng-template #elseBlock>
+    <ion-icon name="airplane-outline"></ion-icon>
+  </ng-template>
+
+  <img *ngIf="response.gender == 'F'" src="female.png" slot="start" />
+  <img *ngIf="response.gender == 'M'" src="male.png" slot="start" />
+</ion-content>

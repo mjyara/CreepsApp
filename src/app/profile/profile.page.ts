@@ -35,6 +35,7 @@ export class ProfilePage implements OnInit {
   isUploaded: boolean;
 
   private imageCollection: AngularFirestoreCollection<MyData>;
+
   constructor(
     private storage: AngularFireStorage,
     private database: AngularFirestore

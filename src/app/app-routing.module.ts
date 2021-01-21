@@ -32,6 +32,18 @@ const routes: Routes = [
     loadChildren: () =>
       import("./main/main.module").then((m) => m.MainPageModule),
   },
+  {
+    path: "test",
+    loadChildren: () =>
+      import("./test/test.module").then((m) => m.TestPageModule),
+  },
+  {
+    path: "userwallet",
+    loadChildren: () =>
+      import("./userwallet/userwallet.module").then(
+        (m) => m.UserwalletPageModule
+      ),
+  },
 ];
 
 @NgModule({

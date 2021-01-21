@@ -6,8 +6,7 @@
       <ion-icon name="ellipsis-vertical"></ion-icon>
     </ion-button>
     <div class="Img" *ngFor="let item of images | async">
-      <img class="autoSize" [src]="item.filepath" />
-
+      <img [src]="item.filepath" class="autoSize" />
       <ion-fab
         horizontal="end"
         vertical="bottom"
